@@ -177,7 +177,7 @@ class RscStructuredText
         align = "center";
         shadow = 1;
     };
-    shadow = 1;
+    shadow = 0;
     access = 1;
     type = 13;
     font = "EtelkaNarrowMediumPro";

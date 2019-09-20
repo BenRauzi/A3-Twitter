@@ -29,16 +29,14 @@ NZF_addMessage = {
 		};
 	};
 
-	_message= format["<t size='1' color='%3' align='left' font='PuristaBold'>%1: </t><t size='1' font='PuristaBold' align='left' color='#bab6b7'>%2</t> <br/>", _name, _message, _colour];
+	_message= format["<t size='1' color='%3' shadow='1' align='left' font='PuristaBold'>%1: </t><t size='1' font='PuristaBold' align='left' color='#bab6b7'>%2</t> <br/>", _name, _message, _colour];
 
 	if (isMultiplayer) then {
 		[_message] remoteExecCall ["NZF_handleTwitter", 2];
-
 	} else {
 		[_message] call NZF_handleTwitter;
 	};
 	_twitterMessages = missionNamespace getVariable ["NZF_twitterMessages", []];
-	test = (missionNamespace getVariable ["NZF_twitterMessages", []]);
-	test2 = _message;
+	_twitterMessages pushBack _message;
 	[_twitterMessages] call NZF_updateTwitter;
 };

@@ -8,6 +8,6 @@ Harris_clientInit = {
 
 	(findDisplay 46) displayAddEventHandler ["KeyDown","_this call NZF_keyHandler"]; // merge into keyhandler
 
-	//[] spawn NZF_twitterLoop;
+	[] spawn NZF_twitterLoop;
 };
 

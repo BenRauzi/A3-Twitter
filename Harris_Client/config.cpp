@@ -211,7 +211,7 @@ class Harris_RscText
 	h = 0.037;
 	w = 0.3;
 	style = 0;
-	shadow = 1;
+	shadow = 0;
 	font = "EtelkaNarrowMediumPro";
 	SizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	linespacing = 1;
@@ -567,6 +567,7 @@ class rscTitles
 				w = 0.25 * safezoneW;
 				h = 0.07 * safezoneH;
 				sizeEx = 0.055;
+				//colorShadow[] = {0,0,0,0};
 			};
 			class Text1: RscStructuredText
 			{
@@ -576,6 +577,7 @@ class rscTitles
 				y = 0.654 * safezoneH + safezoneY;
 				w = 0.3 * safezoneW;
 				h = 0.5 * safezoneH;
+				colorShadow[] = {0,0,0,0};
 			};
 		};
 	};
@@ -596,6 +598,7 @@ class NZF_twitterType
 			w = 0.25 * safezoneW;
 			h = 0.07 * safezoneH;
 			sizeEx = 0.055;
+			colorShadow[] = {0,0,0,0};
 		};
 		class twitter_type: RscEdit
 		{
@@ -604,6 +607,7 @@ class NZF_twitterType
 			y = 0.687 * safezoneH + safezoneY;
 			w = 0.2 * safezoneW;
 			h = 0.025 * safezoneH;
+			colorShadow[] = {0,0,0,0};
 		};
 	};
 };
