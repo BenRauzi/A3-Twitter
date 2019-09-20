@@ -7,7 +7,7 @@ if (!isMultiplayer || isServer) then {
 	Init_Function_List = ["serverInit", "clientInit", "configInit"];
 	Init_Functions = ["Functions", "Init", "Harris", Init_Function_List, "Client"];//Main Folder, Sub Folder, Function Tag, Function List, Scope
 	
-	Twitter_Function_List = ["addMessage","openTwitterType","sendMessage", "setTwitterName", "updateTwitter"];
+	Twitter_Function_List = ["twitterLoop","openTwitterType","sendMessage","addMessage", "updateTwitter", "keyHandler", "handleTwitter"];
 	Twitter_Functions = ["Functions", "Twitter", "NZF", Twitter_Function_List, "Client"]; //Main Folder, Sub Folder, Function Tag, Function List, Scope
 
 	Functions_List = [Init_Functions, Twitter_Functions];
@@ -18,7 +18,7 @@ if (!isMultiplayer || isServer) then {
 		_scope = _x select 4;
 		{
 			_file = format["%1\fn_%2.sqf", _dir, _x];
-			[] call compile preprocessFileLineNumbers _file; //Could move this to compileFinal for security, however call compile allows more flexibility
+			[] call compileFinal preprocessFileLineNumbers _file; //Loads functin
 			if (_scope == "Client") then {
 				publicVariable format["%1_%2", _tag, _x];
 				diag_log format["%1_%2 Loaded", _tag, _x];

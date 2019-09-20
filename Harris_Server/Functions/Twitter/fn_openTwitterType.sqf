@@ -7,6 +7,7 @@ NZF_openTwitterType = {
 	
 	createDialog "NZF_twitterType";	
 
+	// stops the text from overlapping
 	if !(isNull (uiNameSpace getVariable ["NZF_TwitterFeed",displayNull])) then {
 		ctrlShow [1000, false];
 	} else {
@@ -20,7 +21,7 @@ NZF_openTwitterType = {
 		_count = 0;
 	};
 
-
+	// Sets the entry to the right position
 	_listBox ctrlSetPosition [-0.705,0.84+0.04*(count NZF_TwitterMessages-1)];
-	_listBox ctrlCommit 0;
+	_listBox ctrlCommit 0; 
 };

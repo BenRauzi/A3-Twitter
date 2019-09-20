@@ -2,21 +2,20 @@
 	Author: Ben Harris
 	Description: Loops to keep twitter menu up to date (less costly than remoteExec)
 */
-NZF_twiterLoop = {
-	_twitterMessages = missionNamespace getVariable ["NZF_twitterMessages", []];
-	while {True} do {
-		if (str _twitterMessages != twitterMessages) then {
-			twitterMessages = str _twitterMessages;
-			if (isNull (uiNameSpace getVariable ["NZF_TwitterFeed", displayNull])) then {
-				5 cutRsc ["NZF_TwitterFeed","PLAIN"];
-			};
-			if (count _twitterMessages == 0) then {
+NZF_twitterLoop = {
+	while {True} do { //Read header
+		currentMessages = missionNamespace getVariable ["NZF_twitterMessages", []];
+		if (str currentMessages != twitterMessages) then { //SQF list == reference type
+			twitterMessages = str currentMessages;
+			if (isNull (uiNameSpace getVariable ["NZF_TwitterFeed", displayNull])) then { //Shows twitter UI if hidden
+				5 cutRsc ["NZF_TwitterFeed","PLAIN"];  
+			}; 
+			if (count currentMessages == 0) then { //hides the menu if no messages left
 				5 cutText ["","PLAIN"];
 			} else {
-				[_twitterMessages] call NZF_updateTwitter;
+				[currentMessages] call NZF_updateTwitter; //updates menu after checks handled
 			};
 		};
 		sleep 1;
 	};
-	
 };

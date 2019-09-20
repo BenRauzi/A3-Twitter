@@ -9,9 +9,9 @@ NZF_updateTwitter = {
 	_displayText = "";
 	{
 		_displayText = _displayText + _x;
-	} forEach _twitterMessages;
+	} forEach _twitterMessages; // adds messages to the list
 
-	_twitterEntry = ((findDisplay 5002) displayCtrl 1400);
+	_twitterEntry = ((findDisplay 5002) displayCtrl 1400); // if the twitter typing menu is open this moves the entry bar down.
 	if !(isNull _twitterEntry) then {
 		_twitterEntry ctrlSetPosition [-0.705,0.84+0.04*(count _twitterMessages-1)];
 		_twitterEntry ctrlCommit 0;
@@ -19,5 +19,5 @@ NZF_updateTwitter = {
 			((findDisplay 5002) displayCtrl 1000) ctrlShow true;
 		};
 	};
-	((uiNameSpace getVariable ["NZF_TwitterFeed", displayNull]) displayCtrl 1100) ctrlSetStructuredText parseText _displayText;
+	((uiNameSpace getVariable ["NZF_TwitterFeed", displayNull]) displayCtrl 1100) ctrlSetStructuredText parseText _displayText; //commits messages to the UI
 };
