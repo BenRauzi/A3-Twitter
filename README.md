@@ -9,6 +9,11 @@
 - Add `[] call Harris_clientInit;` to your init.sqf or initplayerlocal.sqf after `waitUntil{!isNull (findDisplay 46)};` (in your mission file)
 - Disable chat channels in the `description.ext`
 
+### Use Instructions:
+- Press `Enter` (break) to open the message box
+- Type in your intended message
+- Press `Enter` to send your message
+
 ### Other Functionality:
 
 Supports setting of custom 'tags' and colours for names of users based on rank/department - currently supported: red, green, gold, blue, teal (default). To add more check out `fn_addMessage.sqf`. 
